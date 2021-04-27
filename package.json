@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "webpack --mode development",
-    "develop": "webpack-dev-server --mode development --open",
+    "develop": "webpack-dev-server",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
