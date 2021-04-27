@@ -8,8 +8,9 @@
     "url": "git://github.com/leokotman/reactapp-from-scratch.git"
   },
   "scripts": {
-    "develop": "webpack serve --open",
-    "build": "webpack",
+    "start": "webpack --mode development",
+    "develop": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lev Kotman",
