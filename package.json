@@ -4,6 +4,8 @@
   "description": "react app from scratch",
   "main": "index.js",
   "scripts": {
+    "develop": "webpack serve --open",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lev Kotman",
