@@ -1,2 +1,7 @@
-console.log("hi this is my app");
-console.log("new message");
+import React from "react";
+import ReactDOM from "react-dom";
+
+ReactDOM.render(
+  React.createElement("div", null, `Hello React again`),
+  document.getElementById("app")
+);
