@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MessageForm from "./components/MessageForm/MessageForm.jsx";
+import s from "./App.module.scss";
 
 const App = () => {
   let [messages, setMessages] = useState([]);
@@ -9,7 +10,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className={s.app}>
       <h1>Hello, React!</h1>
       <button onClick={addNewMessage}>Add message</button>
       <span>Your messages:</span>
