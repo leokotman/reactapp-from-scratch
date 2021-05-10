@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AUTHORS } from "../../constants";
 
 const MessageForm = ({ onAddMessage }) => {
   const [value, setValue] = useState("");
@@ -9,7 +10,7 @@ const MessageForm = ({ onAddMessage }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddMessage(value);
+    onAddMessage({ author: AUTHORS.HUMAN, text: value });
     setValue("");
   };
   const handleKeyDown = (e, cb) => {
@@ -27,7 +28,7 @@ const MessageForm = ({ onAddMessage }) => {
       }}
     >
       <input type="text" value={value} onChange={handleChange} />
-      <input type="submit" />
+      <input type="submit" value="Send message" />
     </form>
   );
 };
