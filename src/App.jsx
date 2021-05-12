@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import MessageForm from "./components/MessageForm/MessageForm.jsx";
+import Header from "./components/Header/Header.jsx";
 import "./App.scss";
 import { AUTHORS } from "./constants";
 
@@ -23,7 +25,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>React messenger</h1>
+      <Header />
       <MessageForm onAddMessage={addNewMessage} />
       <span>Your messages:</span>
       <section className="messages">
@@ -34,7 +36,7 @@ const App = () => {
               msg.author === AUTHORS.BOT ? "bot_message" : "human_message"
             }`}
           >
-             {msg.author}: {msg.text}
+            {msg.author}: {msg.text}
           </p>
         ))}
       </section>

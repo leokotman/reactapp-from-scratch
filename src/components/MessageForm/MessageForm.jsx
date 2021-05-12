@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { AUTHORS } from "../../constants";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 const MessageForm = ({ onAddMessage }) => {
   const [value, setValue] = useState("");
+  const classes = useStyles();
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -22,13 +32,20 @@ const MessageForm = ({ onAddMessage }) => {
 
   return (
     <form
-      onSubmit={handleSubmit}
       onKeyDown={(e) => {
         handleKeyDown(e, handleSubmit);
       }}
     >
       <input type="text" value={value} onChange={handleChange} />
-      <input type="submit" value="Send message" />
+      <Button
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        endIcon={<Icon>send</Icon>}
+        onClick={handleSubmit}
+      >
+        Send
+      </Button>
     </form>
   );
 };
