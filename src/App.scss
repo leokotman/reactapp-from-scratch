@@ -1,0 +1,27 @@
+$appWidth: 90vw;
+
+.app {
+  width: $appWidth;
+  margin: 0 auto;
+
+  .messages {
+      display: flex;
+      flex-direction: column;
+      background-color: skyblue;
+
+      .message {
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: .5rem;
+        width: max-content;
+      }
+      .human_message {
+          align-self: flex-start;
+      }
+      .bot_message {
+          align-self: flex-end;
+      }
+  }
+  
+}
