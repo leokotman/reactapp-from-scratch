@@ -23,17 +23,16 @@ const MessageForm = ({ onAddMessage }) => {
     onAddMessage({ author: AUTHORS.HUMAN, text: value });
     setValue("");
   };
-  const handleKeyDown = (e, cb) => {
+  const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      cb();
     }
   };
 
   return (
     <form
       onKeyDown={(e) => {
-        handleKeyDown(e, handleSubmit);
+        handleKeyDown(e);
       }}
     >
       <input type="text" value={value} onChange={handleChange} />
