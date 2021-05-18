@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Grid from "@material-ui/core/Grid";
+
 import MessageForm from "./components/MessageForm/MessageForm.jsx";
+import Header from "./components/Header/Header.jsx";
 import "./App.scss";
 import { AUTHORS } from "./constants";
 
@@ -23,21 +26,29 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>React messenger</h1>
-      <MessageForm onAddMessage={addNewMessage} />
-      <span>Your messages:</span>
-      <section className="messages">
-        {messages.map((msg, index) => (
-          <p
-            key={index}
-            className={`message ${
-              msg.author === AUTHORS.BOT ? "bot_message" : "human_message"
-            }`}
-          >
-             {msg.author}: {msg.text}
-          </p>
-        ))}
-      </section>
+      <Grid container spacing={1} wrap="wrap">
+        <Grid item xs={12}>
+          <Header />
+        </Grid>
+        <Grid item >
+          <MessageForm onAddMessage={addNewMessage} />
+        </Grid>
+        <Grid item xs={7} className="grid_messages">
+          <span>Your messages:</span>
+          <section className="messages">
+            {messages.map((msg, index) => (
+              <p
+                key={index}
+                className={`message ${
+                  msg.author === AUTHORS.BOT ? "bot_message" : "human_message"
+                }`}
+              >
+                {msg.author}: {msg.text}
+              </p>
+            ))}
+          </section>
+        </Grid>
+      </Grid>
     </div>
   );
 };

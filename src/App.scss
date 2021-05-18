@@ -1,8 +1,12 @@
-$appWidth: 90vw;
+$appWidth: 95vw;
 
 .app {
   width: $appWidth;
   margin: 0 auto;
+
+  .grid_messages {
+    background-color:wheat;
+  }
 
   .messages {
       display: flex;
@@ -15,6 +19,7 @@ $appWidth: 90vw;
         box-sizing: border-box;
         padding: .5rem;
         width: max-content;
+        
       }
       .human_message {
           align-self: flex-start;
