@@ -1,16 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
-const Header = () => {
+export const Header = () => {
   return (
     <>
       <h1>React messenger</h1>
       <ul className="menu">
-        <li>Chats</li>
-        <li>Other stuff</li>
+        <li>
+          <Link to="/" />
+          Profile
+        </li>
+        <li>
+          <Link to="/chats" />
+          Chats
+        </li>
       </ul>
     </>
   );
 };
-
-export default Header;
