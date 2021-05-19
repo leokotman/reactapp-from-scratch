@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-import MessageForm from "./components/MessageForm/MessageForm.jsx";
 import Chats from "./components/Chats/Chats.jsx";
 import Profile from "./components/Profile/Profile.jsx";
+import { AUTHORS } from "./constants";
 
 import "./App.scss";
-import { AUTHORS } from "./constants";
 
 const Routes = () => {
   let [messages, setMessages] = useState([]);
@@ -28,51 +26,27 @@ const Routes = () => {
   }, [messages]);
 
   return (
-    <div className="app">
-      <Switch>
-        <Route path="/chats">
-          <Chats />
-        </Route>
-        <Route path="/" exact>
-          <Profile />
-        </Route>
-      </Switch>
-
-      <Grid container spacing={1} wrap="wrap">
-        <Grid item xs={12}>
-          <h1>React messenger</h1>
-          <ul className="menu">
+    <BrowserRouter>
+      <ul className="menu">
             <Link to="/">
               <li>Profile</li>
             </Link>
             <Link to="/chats">
               <li>
                 Chats
-                <Chats />
               </li>
             </Link>
           </ul>
-        </Grid>
-        <Grid item>
-          <MessageForm onAddMessage={addNewMessage} />
-        </Grid>
-        <Grid item xs={7} className="grid_messages">
-          <span>Your messages:</span>
-          <section className="messages">
-            {messages.map((msg, index) => (
-              <p
-                key={index}
-                className={`message ${
-                  msg.author === AUTHORS.BOT ? "bot_message" : "human_message"
-                }`}
-              >
-                {msg.author}: {msg.text}
-              </p>
-            ))}
-          </section>
-        </Grid>
-      </Grid>
-    </div>
+
+      <Switch>
+          <Route path="/chats">
+            <Chats messages={messages} addNewMessage={addNewMessage}/>
+          </Route>
+          <Route path="/" exact>
+            <Profile />
+          </Route>
+      </Switch>
+    </BrowserRouter>
   );
 };
 export default Routes;
