@@ -14,29 +14,30 @@ const Chats = (props) => {
   ];
 
   return (
-      <Grid container spacing={1} wrap="wrap">
-        <Grid item xs={3}>
-          <ChatList chats={chats}/>
-        </Grid>
-        <Grid item xs={7} className="grid_messages">
-          <span>Your messages:</span>
-          <section className="messages">
-            {props.messages.map((msg, index) => (
-              <p
-                key={index}
-                className={`message ${
-                  msg.author === AUTHORS.BOT ? "bot_message" : "human_message"
-                }`}
-              >
-                {msg.author}: {msg.text}
-              </p>
-            ))}
-          </section>
-        </Grid>
-        <Grid item>
-          <MessageForm onAddMessage={props.addNewMessage} />
-        </Grid>
+    <Grid container spacing={1} wrap="wrap">
+      <Grid item xs={3}>
+        chatlist
+        <ChatList chats={chats} />
       </Grid>
+      <Grid item xs={7} className="grid_messages">
+        <span>Your messages:</span>
+        <section className="messages">
+          {props.messages.map((msg, index) => (
+            <p
+              key={index}
+              className={`message ${
+                msg.author === AUTHORS.BOT ? "bot_message" : "human_message"
+              }`}
+            >
+              {msg.author}: {msg.text}
+            </p>
+          ))}
+        </section>
+      </Grid>
+      <Grid item>
+        <MessageForm onAddMessage={props.addNewMessage} />
+      </Grid>
+    </Grid>
   );
 };
 

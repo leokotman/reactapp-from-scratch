@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ChatList = (props) => {
+  console.log(props.chats);
   return (
-    <ul className="chatlist">
-      {props.chats.map((chat) => {
-        <li key={chat.id}>
-          <Link to={`/${chat.id}`}>{chat.name}</Link>
-        </li>;
-      })}
+    <ul>
+      {props.chats.map((chat) => (
+        <li key={chat.id}>{chat.name}</li>
+      ))}
     </ul>
   );
 };
