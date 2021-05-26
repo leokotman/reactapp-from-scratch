@@ -6,7 +6,9 @@ const ChatList = (props) => {
   return (
     <ul>
       {props.chats.map((chat) => (
-        <li key={chat.id}>{chat.name}</li>
+        <li key={chat.id}>
+          <Link to={`/chats/${chat.id}`}>{chat.name}</Link>
+        </li>
       ))}
     </ul>
   );
